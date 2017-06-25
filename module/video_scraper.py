@@ -10,7 +10,7 @@ Example::
 
 Test::
     
-    python3 video_scraper.py --max-results 5 --published-after "2017-04-01T00:00:00Z" --max-pages 1 --region-code KE --relevance-language sw
+    python3 video_scraper.py --max-results 5 --max-pages 1 --region-code KE --relevance-language sw
 
 Search procedure
 ----------------
@@ -48,8 +48,8 @@ import pandas as pd
 from apiclient.discovery import build
 from apiclient.errors import HttpError
 from oauth2client.tools import argparser
+from config import DEVELOPER_KEY
 
-DEVELOPER_KEY = ""
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
@@ -157,12 +157,13 @@ def dedupe_video_ids(search_results, video_ids=[]):
         if video_id not in video_ids:
             video_ids.append(video_id)
             search_results_dedupe.append(search_result)
-    print('Deduplication: removed {0} of {1} search_results'.format(len(search_results) - len(search_results_dedupe), len(search_results)))
+    print('Deduplication: removed {0} of {1} search results'.format(len(search_results) - len(search_results_dedupe), len(search_results)))
     return search_results_dedupe, video_ids
 
 if __name__ == "__main__":
+    one_week_ago = (datetime.datetime.now() - datetime.timedelta(days=7)).strftime(format="%Y-%m-%dT%H:%M:%SZ")
     argparser.add_argument("--max-results", help="Max results", type=int, default=50)
-    argparser.add_argument("--published-after", help="Published after (e.g. '2017-04-01T00:00:00Z'", type=str, default="2017-04-01T00:00:00Z")
+    argparser.add_argument("--published-after", help="Published after (e.g. '2017-04-01T00:00:00Z'. Default is one week ago", type=str, default=one_week_ago)
     argparser.add_argument("--max-pages", help="Max pages", type=int, default=10)
     argparser.add_argument("--region-code", help="Region code'", type=str, default="US")
     argparser.add_argument("--relevance-language", help="Relevance language'", type=str, default="en")
@@ -195,6 +196,7 @@ if __name__ == "__main__":
         channels = json.load(f)
 
     try:
+        print('Searching for videos published after {0}'.format(args.published_after))
         # (1) Get and filter recent uploads from several channels that tend to post full speeches.
         channel_ids = [ch['channelId'] for ch in channels if ch['mostly_speeches'] == True]
         kwargs = {
@@ -266,7 +268,7 @@ if __name__ == "__main__":
             video_results_detail.extend(video_results_detail_batch)
         assert len(new_video_ids) == len(video_results_detail)
 
-        # combines the results into a simple dataframe.
+        # combines the results into a dataframe.
         results = []
         for video_result in video_results_detail:
             results.append([video_result['id'], video_result['snippet']['title'].encode('ascii', 'ignore').decode(), video_result['snippet']['publishedAt'], video_result['snippet']['channelTitle'].encode('ascii', 'ignore').decode(), video_result['contentDetails']['duration']])
@@ -276,12 +278,10 @@ if __name__ == "__main__":
         assert results.shape[0] == len(new_video_ids)
 
         # saves video results to file.
-        dt = datetime.datetime.strftime(datetime.datetime.now(), format="%Y%m%d_%H%M%S")
+        dt = datetime.datetime.strftime(datetime.datetime.now(), format="%Y-%m-%dT%H-%M-%SZ")
         fname = "youtube_search_results_{0}.csv".format(dt)
-        print('Saving a total of {0} new videos to {1}'.format(results.shape[0], fname))
         pd.DataFrame.to_csv(results, os.path.join(settings.DATA_DIR, 'videos', fname), header=True, index=False, quoting=csv.QUOTE_ALL)
+        print('Saved {0} new videos to {1}'.format(results.shape[0], fname))
     except HttpError as e:
         print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
-
-
 

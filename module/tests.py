@@ -1,7 +1,10 @@
 #!/bin/bash/python
 import unittest
-
+from config import DEVELOPER_KEY
 from video_scraper import youtube_playlistitems_list
+
+YOUTUBE_API_SERVICE_NAME = "youtube"
+YOUTUBE_API_VERSION = "v3"
 
 
 class VideoScraperTest(unittest.TestCase):
