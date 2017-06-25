@@ -2,9 +2,11 @@
 Status
 ******
 
+This file contains short summaries of where I left off and what the next steps are.
 
-Left off:
+2017-06-24
+==========
 
-    - more or less finished putting together names of campaign leaders for NASA and Jubilee.
-    - next steps: (1) set up Youtube API search; (2) set up Google API search; (3) decide exactly what is worth storing aside from transcripts of speeches.
-    - 
+- left off: finished writing simple Youtube API script.
+- next steps: (1) set up on server and schedule to run every day.
+- 
