@@ -1,0 +1,913 @@
+/*
+Attributes
+----------
+
+name: name of the individal.
+    Note: I put "nasa" for party where I am too lazy to look up a specific
+    party affiliation.
+
+description: short description of who the person is (e.g. leader of XXX party;
+    current governor of XXXX). 
+
+aka: names that the individual is "also known as" (including nicknames and
+    alternative spelling)
+
+party: party (or alliance)
+
+role: refers to whether the individual is a campaigner (and thus on the
+    public facing side of things) or a technical advisor/expert (and thus not
+    on the public facing side of things). "campaigners" include all
+    candidates, as well as those campaigning publicly on behalf of a
+    candidate.
+
+team: which campaign team the individual is on (if applicable).
+
+
+
+*/
+[
+    // NASA
+    {
+        "name": "raila odinga",
+        "aka": [],
+        "party": "odm",
+        "role": "campaigner",
+        "team": 1,
+    },
+    {
+        "name": "moses wetang'ula",
+        "aka": ["wetangula"],
+        "description": "ford-k leader",
+        "party": "ford-k",
+        "role": "campaigner",
+        "team": 1,
+    },
+    {
+        "name": "issa timamy",
+        "aka": [],
+        "description": "lamu governor",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 1,
+    },
+    {
+        "name": "david nkedianye",
+        "description": "kajiado governor",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 1
+    },
+    {
+        "name": "joseph tiampati",
+        "description": "narok governor aspirant",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 1
+    },
+    {
+        "name": "musalia mudavadi",
+        "description": "anc leader",
+        "party": "anc",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "hassan joho",
+        "description": "ODM deputy party leader; mombasa governor",
+        "party": "odm",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "josephat nanok",
+        "description": "turkana governor; Council of Governors chairman",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        //note: need to be careful about confusing with other rutos.
+        "name": "isaac ruto",
+        "aka": ["isaac rutto"],
+        "description": "bomet governor; CCM leader",
+        "party": "ccm",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "aisha jumwa",
+        "description": "kilifi women representative",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "kalonzo musyoka",
+        "description": "wiper party leader; deputy president candidate",
+        "party": "wiper",
+        "role": "campaigner",
+        "team": 3
+    }
+    {
+        "name": "wycliffe oparanya",
+        "description": "kakamega governor",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "amason kingi",
+        "description": "kilifi governor",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 3,
+    }
+    {
+        "name": "farah maalim",
+        "description": "former deputy speaker",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 3,
+    },
+    {
+        "name": "millie odhiambo",
+        "description": "mbita MP",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 3
+    }
+    {
+        "name": "junet mohamed",
+        "description": "suna east MP",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 4
+    }
+    {
+        "name": "ahmed abdullahi",
+        "description": "wajir governor",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 4
+    }
+    {
+        "name": "mishi mboko",
+        "description": "mombasa women representative",
+        "party": "nasa",
+        "role": "campaigner",
+        "team": 4,
+    }
+    {
+        "name": "jimmy wanjigi",
+        "description": "businessman; coleading resource mobilization team",
+        "role": "technical",
+        "party": "nasa",
+    },
+    {
+        "name": "charles njonjo",
+        "description": "former attorney general; coleading resource mobilization team",
+        "party": "nasa",
+        "role": "technical",
+    },
+    {
+        "name": "willis otieno",
+        "description": "lawyer; leading technical team",
+        "role": "technical",
+        "party": "nasa"
+    },
+    {
+        "name": "david ndii",
+        "role": "technical",
+        "party": "nasa"
+    }
+    {
+        "name": "abubakar zein",
+        "description": "civil society activist",
+        "role": "technical",
+        "party": "nasa"
+    },
+    {
+        "name": "adams oloo",
+        "description": "UoN lecturer",
+        "role": "technical",
+        "party": "nasa"
+    },
+    {
+        "name": "oduor ong'wen",
+        "description": "odm executive director",
+        "role": "technical",
+        "party": "nasa"
+    },
+    {
+        "name": "norman magaya",
+        "description": "nasa campaign executive director",
+        "role": "technical",
+        "party": "nasa"
+    },
+    {
+        "name": "evans kidero",
+        "description": "nairobi governor",
+        "role": "campaigner",
+        "party": "odm",
+    },
+    {
+        "name": "jonathan mweke",
+        "description": "nairobi deputy governor",
+        "role": "campaigner",
+        "party": "odm",
+    },
+    {
+        "name": "kivutha kibwana",
+        "description": "makueni governor",
+        "role": "campaigner",
+        "party": "nasa",
+    },
+    {
+        "name": "johnson muthama",
+        "description": "machakos senator",
+        "role": "campaigner",
+        "party": "nasa",
+    }
+    {
+        "name": "julius malombe",
+        "description": "kitui governor",
+        "role": "campaigner",
+        "party": "nasa",
+    },
+    {
+        "name": "sospeter ojaamong",
+        "description": "busia governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 3
+    },
+    {   
+        "name": "yusuf chanzu",
+        "description": "vihiga governor aspirant",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 3
+    },
+    {   
+        "name": "moses akaranga",
+        "description": "vihiga governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 3
+    },
+    {   
+        "name": "alfred khang'ati",
+        "description": "bungoma governor aspirant",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 3
+    },
+    {   
+        "name": "stephen mutoro",
+        "description": "bungoma governor aspirant",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 3
+    },
+    {   
+        "name": "anyang nyong'o",
+        "aka": ["nyongo", "anyang' nyong'o"],
+        "description": "kisumu governor aspirant",
+        "role": "campaigner",
+        "party": "odm",
+        "team": 5
+    },
+    {   
+        "name": "cyprian awiti",
+        "description": "homa bay governor",
+        "role": "campaigner",
+        "party": "odm",
+        "team": 5
+    },
+    {   
+        "name": "cornel rasanga",
+        "description": "siaya governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 5
+    },
+    {   
+        "name": "okoth obado",
+        "description": "migori governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 5
+    },
+    {
+        "name": "james ongwae",
+        "description": "kisii governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 6
+    },
+    {
+        "name": "john nyagarama",
+        "description": "nyamira governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 6
+    },
+    {
+        "name": "patrick khaemba",
+        "description": "trans nzoia governor",
+        "role": "campaigner",
+        "party": "nasa",
+        "team": 2
+    },
+    {
+        "name": "godfrey kanoti",
+        "party": "nasa",
+        "role": "technical"
+    },
+    {
+        "name": "caesar asiyo",
+        "party": "nasa",
+        "role": "technical"
+    },
+    {
+        "name": "chris mandu mandu",
+        "description": "political strategist for wetangula",
+        "party": "nasa",
+        "role": "technical"
+    },
+    {
+        "name": "bromwel wafula",
+        "description": "political strategist for wetangula",
+        "party": "ford-k",
+        "role": "technical",
+    },
+    {
+        "name": "kipruto arap kirwa",
+        "party": "nasa",
+    },
+
+    /* ********************************** */
+    // JUBILEE
+    {
+        "name": "uhuru kenyatta",
+        "role": "campaigner",
+        "party": "jubilee",
+    },
+    {
+        "name": "william ruto",
+        "role": "campaigner",
+        "party": "jubilee",
+    },
+    {
+        "name": "raphael tuju",
+        "role": "campaigner",
+        "description": "jubilee secretariat head; secretary general of jubilee",
+        "party": "jubilee"
+    },
+    {
+        "name": "raphael david murathe",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "winnie guchu",
+        "role": "campaigner",
+        "party": "jubilee"
+    },
+    {
+        "name": "alfred gitonga",
+        "role": "campaigner",
+        "party": "jubilee"
+    },
+    {
+        "name": "aden duale",
+        "description": "majority leader in National Assembly",
+        "role": "campaigner",
+        "party": "jubilee",
+        "team": 7 // northeastern
+    },
+    {
+        "name": "beatrice elachi",
+        "description": "nominated Senator",
+        "role": "campaigner",
+        "party": "jubilee",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "veronica maina",
+        "description": "jubilee vice chairperson",
+        "role": "campaigner",
+        "party": "jubilee"
+    },
+    {
+        "name": "jomo gecaga",
+        "description": "uhuru's nephew and personal assistant",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "njee muturi",
+        "description": "solicitor general",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "muhoho kenyatta",
+        "description": "uhuru's younger brother",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "joseph kinyua",
+        "description": "uhuru's chief of staff",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "david chirchir",
+        "aka": ["davis chirchir"],
+        "description": "former energy CS",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "farouk kibet",
+        "description": "ruto's aide",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "joseph maathai",
+        "description": "jubilee national steering committee member",
+        "role": "campaigner",
+        "party": "jubilee"
+    },
+    {
+        "name": "samuel tunai",
+        "description": "narok governor",
+        "role": "campaigner",
+        "party": "jubilee",
+        "team": 1 // masaailand
+    },
+    {
+        "name": "moses sakuda",
+        "description": "kajiado north MP",
+        "role": "campaigner",
+        "party": "jubilee",
+        "team": 1
+    },
+    {
+        "name": "katoo ole metito",
+        "description": "kajiado south MP",
+        "role": "campaigner",
+        "party": "jubilee",
+        "team": 1
+    },
+    {
+        "name": "joyce laboso",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2 // larger rift valley
+    },
+    {
+        "name": "john munyes",
+        "description": "turkana senator",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "soipan tuya",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "joyce emanikor",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "davis sankok",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "susan kihika",
+        "description": "nakuru county speaker",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "simon kachapin",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "janet nangapo",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 2
+    },
+    {
+        "name": "charles nyachae",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3 // nyanza
+    },
+    {
+        "name": "albert nyaundi",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "joseph kiangoi",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "walter nyambati",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "jimmy angwenyi",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "mathias robi",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "kiraitu murungi",
+        "description": "meru senator",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "rachael nyamai",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "regina ndambuki",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "victor munyaka",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "kithure kindiki",
+        "description": "senate majority leader",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "kalembe ndile",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "joe mutambo",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "john muchiri",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "tiya galgalo",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "petkey miriti",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "dido ali raso",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "francis chachu",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "rehema galgalo",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 4 // eastern
+    },
+    {
+        "name": "salim mvurya",
+        "description": "kwale governor",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "gideon mung'aro",
+        "aka": ["mungaro"],
+        "description": "kilifi north mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "zainabu chidzuga",
+        "description": "kwale county women representative",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "danson mungatana",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "suleiman shabhal",
+        "description": "mombasa governor",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "naomi shaban",
+        "description": "taveta mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 5 // coast
+    },
+    {
+        "name": "kenneth lusaka",
+        "aka": ["ken lusaka"],
+        "description": "bungoma governor",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 6 // western
+    },
+    {
+        "name": "ben washiali",
+        "description": "mumias east mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 6 // western
+    },
+    {
+        "name": "mary emase",
+        "description": "teso south mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 6 // western
+    },
+    {
+        "name": "charles gimose",
+        "description": "mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 6 // western
+    },
+    {
+        "name": "mohamed mohamud",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 7 // northeastern
+    },
+    {
+        "name": "abbas sheikh",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 7 // northeastern
+    },
+    {
+        "name": "hassan yussuf",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 7 // northeastern
+    },
+    {
+        "name": "adan keynan",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 7 // northeastern
+    },
+    {
+        "name": "kembi gitura",
+        "description": "murang'a senator",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "esther murugi",
+        "description": "mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "alice ng'ang'a",
+        "description": "mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "sabina chege",
+        "description": "mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "njogu barua",
+        "description": "mp",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "nderitu gachagua",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "david kiaraho",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 8 // central
+    },
+    {
+        "name": "mike sonko",
+        "aka": ["michael sonko"],
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "rachel shebesh",
+        "description": "women representative",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "maina kamanda",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "johnson sakaja",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "margaret wanjiru",
+        "description": "bishop",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "dennis waweru",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 9 // nairobi
+    },
+    {
+        "name": "nancy gitau",
+        "description": "former state house adviser",
+        "role": "technical",
+        "party": "jubilee",
+    },
+    {
+        "name": "noah wekesa",
+        "description": "jubilee steering committee cochairman",
+        "role": "technical",
+        "party": "jubilee",
+    },
+    {
+        "name": "joshua kutuny",
+        "description": "former cherengany MP; uhuru advisor",
+        "role": "technical",
+        "party": "jubilee",
+    },
+    {
+        "name": "dennis itumbi",
+        "description": "head of digital team",
+        "party": "jubilee",
+        "role": "technical"
+    },
+    {
+        "name": "joy gwendo",
+        "description": "nominated senator",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3 // nyanza
+    },
+    {
+        "name": "chris obure",
+        "description": "kisii senator",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "joash maangi",
+        "description": "kisii deputy governor",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "joash nyamoko",
+        "party": "jubilee",
+        "role": "campaigner",
+        "team": 3
+    },
+    {
+        "name": "george muhoho",
+        "description": "Uhuru’s maternal uncle and former Kenya Airports Authority managing director",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "justin muturi",
+        "description": "national assembly speaker",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "ekwee ethuro",
+        "description": "senate speaker",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "david maiyo",
+        "description": "ruto private secretary",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "charles keter",
+        "description": "energy CS",
+        "role": "technical",
+        "party": "jubilee"
+    },
+    {
+        "name": "daniel baraza",
+        "party": "jubilee",
+        "team": 6 // western
+    },
+    {
+        "name": "justus kizito",
+        "party": "jubilee",
+        "team": 6 // western
+    }
+
+
+    
+
+
+
+
+
+]
+

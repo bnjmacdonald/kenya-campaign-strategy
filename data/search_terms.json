@@ -1,0 +1,6 @@
+{
+    "entity_terms_primary": ["raila odinga", "uhuru kenyatta", "william ruto", "nasa", "jubilee", "odm"],
+    "entity_terms_secondary": ["ruto", "uhuruto", "wetangula", "mudavadi"],
+    "campaign_terms_primary": ["full speech", "speech rally", "speech address", "speech campaign"],
+    "campaign_terms_secondary": ["speech gathering", "speech remarks"]
+}
