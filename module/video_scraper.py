@@ -10,7 +10,7 @@ Usage
 
 [example] Request videos over past week::
     
-    python3 video_scraper.py --max-results 50 --max-pages 5 --region-code KE --relevance-language sw    
+    python3 video_scraper.py --max-results 50 --max-pages 5 --region-code KE --relevance-language sw
 
 Test::
     
