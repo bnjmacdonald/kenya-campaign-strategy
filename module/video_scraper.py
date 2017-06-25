@@ -263,33 +263,33 @@ if __name__ == "__main__":
         video_results = search_results_dedupe + related_results_dedupe + channel_results_dedupe
         new_video_ids = list(set([vr['id']['videoId'] for vr in video_results]))
         assert all([video_id not in orig_video_ids for video_id in new_video_ids])
-        if len(new_video_ids) == 0:
-            print('No new videos found. Nothing saved to disk.')
-        else:
-            kwargs = {
-                'part': 'id,snippet,contentDetails'
-            }
-            video_results_detail = []
-            for i in range(0, len(new_video_ids), 50):
-                # print(i)
-                video_results_detail_batch = youtube_videos_list(video_ids=new_video_ids[i:i+50], **kwargs)
-                video_results_detail.extend(video_results_detail_batch)
-            assert len(new_video_ids) == len(video_results_detail)
+        # if len(new_video_ids) == 0:
+        #     print('No new videos found. Nothing saved to disk.')
+        # else:
+        kwargs = {
+            'part': 'id,snippet,contentDetails'
+        }
+        video_results_detail = []
+        for i in range(0, len(new_video_ids), 50):
+            # print(i)
+            video_results_detail_batch = youtube_videos_list(video_ids=new_video_ids[i:i+50], **kwargs)
+            video_results_detail.extend(video_results_detail_batch)
+        assert len(new_video_ids) == len(video_results_detail)
 
-            # combines the results into a dataframe.
-            results = []
-            for video_result in video_results_detail:
-                results.append([video_result['id'], video_result['snippet']['title'].encode('ascii', 'ignore').decode(), video_result['snippet']['publishedAt'], video_result['snippet']['channelTitle'].encode('ascii', 'ignore').decode(), video_result['contentDetails']['duration']])
-            results = pd.DataFrame(results, columns=['video_id', 'title', 'published_at', 'channel_title', 'duration'])
-            results.sort_values('published_at', ascending=False, inplace=True)
-            # results = sorted(results, key=lambda x: x[2], reverse=True)
-            assert results.shape[0] == len(new_video_ids)
+        # combines the results into a dataframe.
+        results = []
+        for video_result in video_results_detail:
+            results.append([video_result['id'], video_result['snippet']['title'].encode('ascii', 'ignore').decode(), video_result['snippet']['publishedAt'], video_result['snippet']['channelTitle'].encode('ascii', 'ignore').decode(), video_result['contentDetails']['duration']])
+        results = pd.DataFrame(results, columns=['video_id', 'title', 'published_at', 'channel_title', 'duration'])
+        results.sort_values('published_at', ascending=False, inplace=True)
+        # results = sorted(results, key=lambda x: x[2], reverse=True)
+        assert results.shape[0] == len(new_video_ids)
 
-            # saves video results to file.
-            dt = datetime.datetime.strftime(datetime.datetime.now(), format="%Y-%m-%dT%H-%M-%SZ")
-            fname = "youtube_search_results_{0}.csv".format(dt)
-            pd.DataFrame.to_csv(results, os.path.join(settings.DATA_DIR, 'videos', fname), header=True, index=False, quoting=csv.QUOTE_ALL)
-            print('Saved {0} new videos to {1}'.format(results.shape[0], fname))
+        # saves video results to file.
+        dt = datetime.datetime.strftime(datetime.datetime.now(), format="%Y-%m-%dT%H-%M-%SZ")
+        fname = "youtube_search_results_{0}.csv".format(dt)
+        pd.DataFrame.to_csv(results, os.path.join(settings.DATA_DIR, 'videos', fname), header=True, index=False, quoting=csv.QUOTE_ALL)
+        print('Saved {0} new videos to {1}'.format(results.shape[0], fname))
     except HttpError as e:
         print("An HTTP error %d occurred:\n%s" % (e.resp.status, e.content))
 
