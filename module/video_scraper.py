@@ -4,9 +4,13 @@
 Usage
 -----
 
-Example::
+[example] Request videos since 1 April 2017::
     
     python3 video_scraper.py --max-results 50 --published-after "2017-04-01T00:00:00Z" --max-pages 5 --region-code KE --relevance-language sw
+
+[example] Request videos over past week::
+    
+    python3 video_scraper.py --max-results 50 --max-pages 5 --region-code KE --relevance-language sw    
 
 Test::
     
@@ -224,6 +228,7 @@ if __name__ == "__main__":
         kwargs.update(base_kws)
         related_results = []
         for channel_result in channel_results_dedupe:
+            print('Searching videos related to: "{0}"'.format(channel_result['snippet']['title']))
             kwargs['relatedToVideoId'] = channel_result['id']['videoId']
             related_results_batch = youtube_search_list(max_pages=args.max_pages, **kwargs)
             kwargs['relatedToVideoId'] = None
