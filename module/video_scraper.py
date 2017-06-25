@@ -228,7 +228,7 @@ if __name__ == "__main__":
         kwargs.update(base_kws)
         related_results = []
         for channel_result in channel_results_dedupe:
-            print('Searching videos related to: "{0}"'.format(channel_result['snippet']['title']))
+            print('Searching videos related to: "{0}"'.format(channel_result['snippet']['title'].encode('ascii', 'ignore').decode()))
             kwargs['relatedToVideoId'] = channel_result['id']['videoId']
             related_results_batch = youtube_search_list(max_pages=args.max_pages, **kwargs)
             kwargs['relatedToVideoId'] = None
