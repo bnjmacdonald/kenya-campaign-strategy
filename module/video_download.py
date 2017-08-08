@@ -31,20 +31,23 @@ if s in ['yes', 'y']:
         if video_id + '.mp4' in downloaded_videos:
             print('Already downloaded video (ID: {0})'.format(video_id))
             continue
-        yt = YouTube(''.join([base_url, video_id]))
-        if len(yt.get_videos()) == 0:
-            print('Failed to find video for video ID: {0}'.format(video_id))
-        if len(yt.filter('mp4')) == 0:
-            print('Failed to find MPEG-4 video for video ID: {0}'.format(video_id))
+        try:
+            yt = YouTube(''.join([base_url, video_id]))
+            if len(yt.get_videos()) == 0:
+                print('Failed to find video for video ID: {0}'.format(video_id))
+            if len(yt.filter('mp4')) == 0:
+                print('Failed to find MPEG-4 video for video ID: {0}'.format(video_id))
 
-        # print(yt.get_videos())
-        # print(yt.filename)
+            # print(yt.get_videos())
+            # print(yt.filename)
 
-        # set the filename:
-        yt.set_filename(video_id)
+            # set the filename:
+            yt.set_filename(video_id)
 
-        # filters MPEG-4 video with lowest resolution.
-        video = yt.filter('mp4')[0]
+            # filters MPEG-4 video with lowest resolution.
+            video = yt.filter('mp4')[0]
 
-        # downloads video.
-        video.download(output_dir)
+            # downloads video.
+            video.download(output_dir)
+        except Exception as e:
+            print(e)
