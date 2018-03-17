@@ -3,6 +3,20 @@ whether a Youtube video is "relevant" (1) or "not relevant" for transcription/tr
 
 A "relevant" video is one that contains some portion of a campaign rally.
 
+This module is designed to be used from the command line. Any keyword arguments
+that `sklearn.feature_extraction.text.CountVectorizer` or `tpot.TPOTClassifier`
+take can be passed as command line arguments.
+
+Example usage::
+
+    python -m module.video_relevance.train \
+        --verbosity 3 \
+        --max_features 1000  --stop_words english --binary \
+        --periodic_checkpoint_folder $OUTPATH \
+        --generations 200 --population_size 25 \
+        --scoring f1_macro --cv 5 \
+        --n_jobs 1 --max_eval_time_mins 5 \
+        --warm_start
 """
 
 import os
@@ -49,13 +63,17 @@ def main(**kwargs) -> None:
     # optimization pipeline).
     featurizer = Featurizer(**kwargs)
     featurizer.fit(X_train)
-    X = featurizer.transform(X_train)
+    X_train = featurizer.transform(X_train)
     if 'verbosity' in tpot_kwargs and tpot_kwargs['verbosity'] > 0:
-        print(f'Beginning hyper-parameter search with training data shape: {X.shape}.')
+        print(f'Beginning hyper-parameter search with training data shape: {X_train.shape}.')
     tpot = TPOTClassifier(**tpot_kwargs)
-    tpot.fit(X, y_train)
+    tpot.fit(X_train, y_train)
     if 'periodic_checkpoint_folder' in tpot_kwargs:
         tpot.export(os.path.join(tpot_kwargs['periodic_checkpoint_folder'], 'best_pipeline.py'))
+    if 'verbosity' in tpot_kwargs and tpot_kwargs['verbosity'] > 0:
+        X_test = featurizer.transform(X_test)
+        print(f'Train set score: {tpot.score(X_train, y_train).round(4)}')
+        print(f'Test set score: {tpot.score(X_test, y_test).round(4)}')
     return None
 
 
